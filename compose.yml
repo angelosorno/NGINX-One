@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+# NGNIX
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
+    image: nginxapp
+    networks:
+      - redapp
+networks:
+  redapp:

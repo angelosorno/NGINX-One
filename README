@@ -1,0 +1,54 @@
+# NGINX Setup
+Debemos primero preparar los archivos según los dominios que necesitemos:
+> Revisar el dominio en ./conf.d o earchivo ./default
+> No deben tener ninguna configuración SSL.
+> Utilizaremos CertBot para general los SSLs de forma automatica.
+> Utilizar el correo server@domain.org para la configuracion del SSL.
+> Los dominios tienen que estar apuntando al servidor para poder general el SSL
+> El dominio debe resolver HTTP
+
+# Ingresamos y Permisos de ejecucion a .install-nginx.sh
+```bash
+cd ~/nginx-one && chmod +x .install-nginx.sh .install-certbot.sh .restart-nginx.sh .update-ssl.sh .fullnewinstall.sh
+```
+
+# Asiganar el dominio a la plantilla correspondiente antes de iniciar el ngnix:
+
+```bash
+nano default
+```
+# Ejecutar el script:
+```bash
+./.install-nginx.sh
+```
+
+# Verificamos que los dominios si esten correctamente configurados en el default de ngninx.
+
+```bash
+cd /etc/nginx/sites-enabled && sudo nano default
+```
+Verificamos nginx y luego reniciamos:
+```bash
+sudo nginx -t
+sudo service nginx restart
+```
+
+# Instalar los Certificados SSL
+Con Let's Encrypt (CertBot) generamos certificado SSL automaticamente.
+```bash
+cd ~/nginx-one && ./.install-certbot.sh
+```
+
+# Correo:
+
+```bash
+server@domains.org
+```
+# No compartir correo
+```bash
+N
+```
+# Seleccionar los dominios
+```bash
+N
+```
