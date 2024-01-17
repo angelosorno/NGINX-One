@@ -1,12 +1,13 @@
-# NGINX-One 🥇
+# NGINX-One 🚀
 
-## Hola 👋, este es el mini-script (.sh) que permite desplegar una aplicación con NGINX y certificado SSL vía SSH.
+### ¡Bienvenido! 👋
+NGINX-One es un script (.sh) que facilita el despliegue de aplicaciones con Nginx y certificado SSL a través de SSH.
 
-### Uso libre Licencia
-
+##### Licencia MIT
+Proyecto de código abierto con licencia libre para uso y contribución.
 ---
 
-# NGINX Setup
+## Setup NGINX-One 
 Instrucciones de instalacion del Scrip NGINX-One
 
 Debemos primero preparar los archivos según los dominios que necesitemos:
@@ -17,22 +18,24 @@ Debemos primero preparar los archivos según los dominios que necesitemos:
 > Los dominios tienen que estar apuntando al servidor para poder general el SSL
 > El dominio debe resolver HTTP
 
-# Ingresamos y Permisos de ejecucion a .install-nginx.sh
+## Permisos
+Ingresamos y asignamos permisos de ejecucion a todos los .sh
+
 ```bash
 cd ~/NGINX-One && chmod +x .install-nginx.sh .install-certbot.sh .restart-nginx.sh .update-ssl.sh .fullnewinstall.sh
 ```
 
-# Asiganar el dominio a la plantilla correspondiente antes de iniciar el ngnix:
+## Asiganar el dominio a la plantilla correspondiente antes de iniciar el ngnix:
 
 ```bash
 nano default
 ```
-# Ejecutar el script:
+## Ejecutar el script:
 ```bash
 ./.install-nginx.sh
 ```
 
-# Verificamos que los dominios si esten correctamente configurados en el default de ngninx.
+## Verificamos que los dominios si esten correctamente configurados en el default de ngninx.
 
 ```bash
 cd /etc/nginx/sites-enabled && sudo nano default
@@ -43,30 +46,39 @@ sudo nginx -t
 sudo service nginx restart
 ```
 
-# Instalar los Certificados SSL
+## Instalar los Certificados SSL
 Con Let's Encrypt (CertBot) generamos certificado SSL automaticamente.
 ```bash
 cd ~/NGINX-One && ./.install-certbot.sh
 ```
 
-# Correo:
+## Correo:
 
 ```bash
 server@domains.org
 ```
-# No compartir correo
+## No compartir correo
 ```bash
 N
 ```
-# Seleccionar los dominios
+## Seleccionar los dominios
 ```bash
 N
 ```
 
-# Certbot Setup
+## Certbot Setup
 Iniciamos el Certbot (Pasos):
 
----
+## Deshabilitar permisos
+Ingresamos y quitamos los permisos de ejecucion a todos los archivos .sh por seguridad.
+
+```bash
+cd ~/NGINX-One && chmod -x .install-nginx.sh .install-certbot.sh .restart-nginx.sh .update-ssl.sh .fullnewinstall.sh
+```
+
+¡Gracias por contribuir a NGINX-One! 🙌
+
+Para más detalles, consulta la documentación completa en el Wiki. ¡Esperamos tu colaboración! 🚀
 
 ---
 
@@ -75,8 +87,6 @@ Iniciamos el Certbot (Pasos):
 ###
 
 <div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ssh/ssh-original.svg" height="40" alt="ssh logo"  />
-  <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="40" alt="docker logo"  />
