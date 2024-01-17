@@ -3,6 +3,8 @@
 #### ¡Bienvenido! 👋
 NGINX-One es un script (.sh) que facilita el despliegue de aplicaciones con Nginx y certificado SSL a través de SSH.
 
+> Adicionalmente se puede ejecutar con Docker. ✨
+
 #### Licencia MIT
 Proyecto de código abierto con licencia libre para uso y contribución.
 
@@ -53,7 +55,9 @@ Con Let's Encrypt (CertBot) generamos certificado SSL automaticamente.
 cd ~/NGINX-One && ./.install-certbot.sh
 ```
 
-### Correo:
+### Correo
+En la consolo pon el correo a donde desea que CertBot emitar las notificaciones relacionadas al certificado SSL en ese servidor.
+
 
 ```bash
 server@domains.org
@@ -70,17 +74,14 @@ N
 ### Certbot Setup
 Iniciamos el Certbot (Pasos):
 
+WAITING FOT IT 😵
+
 ### Deshabilitar permisos 🔐
-POr ultimo ingresamos y quitamos los permisos de ejecucion a todos los archivos .sh por seguridad.
+Por ultimo ingresamos y quitamos los permisos de ejecucion a todos los archivos .sh por seguridad.
 
 ```bash
 cd ~/NGINX-One && chmod -x .install-nginx.sh .install-certbot.sh .restart-nginx.sh .update-ssl.sh .fullnewinstall.sh
 ```
-
-¡Gracias por contribuir a NGINX-One! 🙌
-
-Para más detalles, consulta la documentación completa en el Wiki. ¡Esperamos tu colaboración! 🚀
-
 
 ---
 
@@ -98,4 +99,6 @@ Para más detalles, consulta la documentación completa en el Wiki. ¡Esperamos 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
+¡Gracias por contribuir a NGINX-One! 🙌
+¡Esperamos tu colaboración! 🚀
 ###
