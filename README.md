@@ -10,16 +10,16 @@ Proyecto de código abierto con licencia libre para uso y contribución.
 
 ---
 
-### Setup NGINX-One 
+### Setup NGINX-One
 Instrucciones de instalacion del Scrip NGINX-One
 
 Debemos primero preparar los archivos según los dominios que necesitemos:
-> Revisar el dominio en ./conf.d o earchivo ./default
-> No deben tener ninguna configuración SSL.
-> Utilizaremos CertBot para general los SSLs de forma automatica.
-> Utilizar el correo server@domain.org para la configuracion del SSL.
-> Los dominios tienen que estar apuntando al servidor para poder general el SSL
-> El dominio debe resolver HTTP
+1. Revisar el dominio en ./conf.d o el archivo ./default
+2. No deben tener ninguna configuración SSL.
+3. Utilizaremos CertBot para general los SSLs de forma automatica.
+4. Utilizar el correo server@domain.org para la configuracion del SSL.
+5. Los dominios tienen que estar apuntando al servidor para poder general el SSL
+6. El dominio debe resolver HTTP
 
 ### Permisos
 Ingresamos y asignamos permisos de ejecucion a todos los .sh
@@ -95,10 +95,10 @@ cd ~/NGINX-One && chmod -x .install-nginx.sh .install-certbot.sh .restart-nginx.
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" height="40" alt="nginx logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="40" alt="docker logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+  <!-- <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  /> -->
 </div>
 
-¡Gracias por contribuir a NGINX-One! 🙌
 ¡Esperamos tu colaboración! 🚀
-###
+
+### ¡Gracias por contribuir a NGINX-One! 🙌

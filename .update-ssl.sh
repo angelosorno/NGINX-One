@@ -7,7 +7,7 @@ sudo certbot renew --dry-run
 
 # Revisar nuevos .conf y renovar SSLs existentes y los nuevos
 echo "👇 Renovando certificados..."
-sudo certbot renew --nginx -v
+sudo certbot renew --nginx --force-renewal -v
 
 # Reiniciar el servicio
 echo "👇 Reiniciando Nginx..."
