@@ -1,25 +1,33 @@
 #!/bin/bash
 
-# Actualizar el sistema y Nginx
+# Actualizar el sistema
 sudo apt update && sudo apt upgrade --no-install-recommends -y
+
+# Agregar repositorio oficial de Nginx para versión más reciente
+sudo apt install curl gnupg2 ca-certificates lsb-release -y
+curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo gpg --dearmor -o /usr/share/keyrings/nginx-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+sudo apt update
+
+# Instalar Nginx desde repositorio oficial (versión más reciente)
 sudo apt install nano nginx -y
 
-# Copiar y respaldar archivo de configuración "default"
-CONFIG_FILE="/etc/nginx/sites-enabled/default"
-BACKUP_DIR="/etc/nginx/sites-enabled-backups"
+# Respaldar configuraciones existentes
+BACKUP_DIR="/etc/nginx/backups"
+TIMESTAMP=$(date +%Y%m%d%H%M%S)
+BACKUP_PATH="$BACKUP_DIR/backup-$TIMESTAMP"
 
 # Crear directorio de respaldo si no existe
 if [ ! -d "$BACKUP_DIR" ]; then
   sudo mkdir -p "$BACKUP_DIR"
 fi
 
-# Respaldar archivo "default" si ya existe
-if [ -f "$CONFIG_FILE" ]; then
-  TIMESTAMP=$(date +%Y%m%d%H%M%S)
-  BACKUP_FILE="$BACKUP_DIR/default-backup-$TIMESTAMP"
-  echo "📂 Respaldando archivo existente: $CONFIG_FILE -> $BACKUP_FILE"
-  sudo cp "$CONFIG_FILE" "$BACKUP_FILE"
-fi
+# Respaldar nginx.conf, sites-available y sites-enabled
+echo "📂 Respaldando configuraciones existentes a $BACKUP_PATH"
+sudo mkdir -p "$BACKUP_PATH"
+sudo cp /etc/nginx/nginx.conf "$BACKUP_PATH/"
+sudo cp -r /etc/nginx/sites-available "$BACKUP_PATH/"
+sudo cp -r /etc/nginx/sites-enabled "$BACKUP_PATH/"
 
 # Validar y reiniciar Nginx
 echo "🔄 Validando configuración de Nginx..."

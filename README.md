@@ -21,6 +21,15 @@ Debemos primero preparar los archivos según los dominios que necesitemos:
 5. Los dominios tienen que estar apuntando al servidor para poder general el SSL
 6. El dominio debe resolver HTTP
 
+### Seguridad y Hardening
+NGINX-One incluye hardening contra vulnerabilidades conocidas:
+- Actualización automática a Nginx más reciente (parchea CVEs de 2018-2025).
+- Configuraciones SSL modernas (TLS 1.2/1.3, sin session tickets).
+- Límites HTTP/2 para prevenir DoS.
+- Rate limiting global.
+- Headers de seguridad en cada sitio (X-Frame-Options, CSP, etc.).
+- Organización por dominio para escalabilidad.
+
 ### Permisos
 Ingresamos y asignamos permisos de ejecucion a todos los .sh
 
